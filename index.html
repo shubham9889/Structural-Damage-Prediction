@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PPV Prediction</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background-color: #f4f4f9;
+        }
+        .container {
+            background: #fff;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            width: 400px;
+            text-align: center;
+        }
+        h1 {
+            margin-bottom: 20px;
+        }
+        input[type="number"] {
+            width: calc(100% - 22px);
+            padding: 10px;
+            margin: 10px 0;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+        button {
+            background-color: #007bff;
+            color: #fff;
+            border: none;
+            padding: 10px 15px;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+        button:hover {
+            background-color: #0056b3;
+        }
+        .result {
+            margin-top: 20px;
+            font-size: 18px;
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>PPV Prediction</h1>
+        <form action="/predict" method="post">
+            <input type="number" name="burden" placeholder="Enter Burden (m)" step="0.01" required>
+            <input type="number" name="spacing" placeholder="Enter Spacing (m)" step="0.01" required>
+            <input type="number" name="max_charge_weight" placeholder="Enter Maximum Charge Weight (kg)" step="0.01" required>
+            <input type="number" name="distance" placeholder="Enter Distance (m)" step="0.01" required>
+            <button type="submit">Predict</button>
+        </form>
+        <div class="result">
+            {{ prediction_text }}
+        </div>
+    </div>
+</body>
+</html>
